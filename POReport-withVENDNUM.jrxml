@@ -4,7 +4,7 @@
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.1269722013523666"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="17"/>
+	<property name="ireport.y" value="156"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -1295,7 +1295,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 		<band height="56">
 			<printWhenExpression><![CDATA[$V{isUnitedStates}]]></printWhenExpression>
 			<componentElement>
-				<reportElement key="table" stretchType="RelativeToBandHeight" x="0" y="0" width="551" height="42" uuid="64cbc47a-d48d-423c-b9d3-061e607ed27e"/>
+				<reportElement key="table" stretchType="RelativeToBandHeight" x="0" y="0" width="551" height="42" isPrintWhenDetailOverflows="true" uuid="64cbc47a-d48d-423c-b9d3-061e607ed27e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Item Info" uuid="12ed9325-acdf-4d44-9d24-745c5e730833">
 						<datasetParameter name="poId">
@@ -1391,7 +1391,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<textElement textAlignment="Center" verticalAlignment="Bottom">
 									<font fontName="Open Sans" size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Type]]></text>
+								<text><![CDATA[Number]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
@@ -1407,7 +1407,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<textElement textAlignment="Center" verticalAlignment="Top">
 									<font fontName="Open Sans" size="10"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{TYPE}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{PARTNUM}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1465,7 +1465,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="19" uuid="8f5d7998-0ee8-4596-98e7-362fb88ca227"/>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="19" isPrintWhenDetailOverflows="true" uuid="8f5d7998-0ee8-4596-98e7-362fb88ca227"/>
 								<box>
 									<bottomPen lineWidth="0.75"/>
 								</box>
@@ -1490,7 +1490,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<textElement textAlignment="Center" verticalAlignment="Bottom">
 									<font fontName="Open Sans" size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Number / Description]]></text>
+								<text><![CDATA[Description]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
@@ -1506,10 +1506,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<textElement textAlignment="Left" verticalAlignment="Top">
 									<font fontName="Open Sans" size="10"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{ItemNumDesc} +
-(($P{ShowLineItemNotes} && ($F{NOTE} != null && !$F{NOTE}.equals(""))) ?
-    "\n  " + $F{NOTE}:
-    "")]]></textFieldExpression>
+								<textFieldExpression><![CDATA[ $F{DESCRIPTION}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1523,7 +1520,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<rightPen lineWidth="1.0"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="70" height="26" uuid="1ed235fd-9e45-42f2-9979-a133daca4de2"/>
+								<reportElement x="0" y="1" width="70" height="26" uuid="1ed235fd-9e45-42f2-9979-a133daca4de2"/>
 								<box>
 									<topPen lineWidth="0.0"/>
 									<leftPen lineWidth="0.0"/>
@@ -1542,7 +1539,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<rightPen lineWidth="1.0"/>
 							</box>
 							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="19" uuid="647f19b3-3087-44b3-82eb-b9fc02b23be7"/>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="70" height="19" uuid="647f19b3-3087-44b3-82eb-b9fc02b23be7"/>
 								<box>
 									<bottomPen lineWidth="0.75"/>
 								</box>
@@ -1617,7 +1614,7 @@ $F{CURRENCYSUBTOTALNOTROUNDED}]]></variableExpression>
 								<leftPen lineWidth="1.0"/>
 								<rightPen lineWidth="1.0"/>
 							</box>
-							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+							<textField isStretchWithOverflow="true" pattern="¤ #,##0.00" isBlankWhenNull="true">
 								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="54" height="19" uuid="acbf5df9-eaae-4fe4-9e45-ed953c773c20"/>
 								<box>
 									<bottomPen lineWidth="0.75"/>
